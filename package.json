@@ -1,0 +1,29 @@
+{
+  "name": "casa-de-cambio",
+  "version": "1.0.0",
+  "description": "casa de cambio para de tarea r/argentina-programa",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:open": "cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/franco646/casa-de-cambio.git"
+  },
+  "author": "franco",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/franco646/casa-de-cambio/issues"
+  },
+  "homepage": "https://github.com/franco646/casa-de-cambio#readme",
+  "dependencies": {
+    "bootstrap": "^4.5.2"
+  },
+  "devDependencies": {
+    "cypress": "^5.2.0",
+    "eslint": "^7.9.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0"
+  }
+}
