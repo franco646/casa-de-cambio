@@ -18,10 +18,12 @@ import {
 } from './check.js';
 
 botonSiguiente.onclick = async function actualizar() {
-  await verificarHayaDatos(await verificarMoneda(), await verificarFecha());
+  const monedaIngresada = await verificarMoneda();
+  const fechaIngresada = await verificarFecha();
+  await verificarHayaDatos(monedaIngresada, fechaIngresada);
   borrarListaAnterior();
-  mostrarListaDeCambios(await buscarCambios(await verificarFecha(), await verificarMoneda()));
-  actualizarTitulo(await verificarFecha(), await verificarMoneda());
+  mostrarListaDeCambios(await buscarCambios(fechaIngresada, monedaIngresada));
+  actualizarTitulo(fechaIngresada, monedaIngresada);
 };
 
 function iniciar() {

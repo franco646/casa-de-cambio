@@ -13,8 +13,7 @@ export function actualizarTitulo(fechaIngresada, monedaIngresada) {
   titulo.textContent = `Valor monetario de el dia ${fechaIngresada}, en base: ${monedaIngresada}`;
 }
 
-export function error() {
-  borrarListaAnterior();
+export function mostrarError() {
   document.querySelector('#titulo').textContent = 'Verifique que haya ingresado datos o pruebe con otra fecha';
 }
 

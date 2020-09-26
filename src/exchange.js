@@ -1,5 +1,5 @@
 /* eslint-disable import/extensions */
-import { error } from './ui.js';
+import { mostrarError } from './ui.js';
 
 export function agregarMonedas() {
   fetch('https://api.exchangeratesapi.io/latest')
@@ -17,5 +17,5 @@ export async function buscarCambios(fechaIngresada, monedaIngresada) {
   return fetch(`https://api.exchangeratesapi.io/${fechaIngresada}?base=${monedaIngresada}`)
     .then((respuesta) => respuesta.json())
     .then((respuestaJSON) => respuestaJSON)
-    .catch(() => error());
+    .catch(() => mostrarError());
 }

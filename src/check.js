@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/extensions
-import { error, mostrarCartelCargando } from './ui.js';
+import { mostrarError, mostrarCartelCargando } from './ui.js';
 
 export async function verificarMoneda() {
   const monedaIngresada = document.querySelector('#moneda').value;
@@ -17,6 +17,6 @@ export function verificarHayaDatos(monedaIngresada, fechaIngresada) {
   if (monedaIngresada !== '' && fechaIngresada !== undefined) {
     mostrarCartelCargando();
   } else {
-    error();
+    mostrarError();
   }
 }
