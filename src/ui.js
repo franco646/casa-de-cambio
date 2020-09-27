@@ -10,7 +10,11 @@ export function borrarListaAnterior() {
 
 export function actualizarTitulo(fechaIngresada, monedaIngresada) {
   const titulo = document.querySelector('#titulo');
-  titulo.textContent = `Valor monetario de el dia ${fechaIngresada}, en base: ${monedaIngresada}`;
+
+  if (titulo.textContent !== 'Verifique que haya ingresado datos o pruebe con otra fecha') {
+    titulo.textContent = `Valor monetario de el dia ${fechaIngresada}, en base: ${monedaIngresada}`;
+  }
+  return false;
 }
 
 export function mostrarError() {
@@ -21,20 +25,23 @@ export function mostrarCartelCargando() {
   document.querySelector('#titulo').textContent = 'Cargando....';
 }
 
-export function continuar() {
-  borrarListaAnterior();
-  actualizarTitulo();
-}
-
 export function mostrarListaDeCambios(respuestaJSON) {
-  Object.keys(respuestaJSON.rates).forEach((moneda) => {
-    const $lista = document.querySelector('#lista');
-    const $monedaEnLista = document.createElement('li');
-    $monedaEnLista.className = 'list-group-item';
-    $monedaEnLista.textContent = `${moneda}:  ${respuestaJSON.rates[moneda]}`;
+  // eslint-disable-next-line dot-notation
+  if (respuestaJSON['error'] !== undefined) {
+    console.log('error');
+    mostrarError();
+    console.log('hola');
+  // eslint-disable-next-line dot-notation
+  } else {
+    Object.keys(respuestaJSON.rates).forEach((moneda) => {
+      const $lista = document.querySelector('#lista');
+      const $monedaEnLista = document.createElement('li');
+      $monedaEnLista.className = 'list-group-item';
+      $monedaEnLista.textContent = `${moneda}:  ${respuestaJSON.rates[moneda]}`;
 
-    $lista.appendChild($monedaEnLista);
-  });
+      $lista.appendChild($monedaEnLista);
+    });
+  }
 }
 
 export const botonSiguiente = document.querySelector('#boton-siguiente');
